@@ -11,17 +11,18 @@ import br.com.mmdevelopment.kotlinissuetracker.databinding.FragmentIssuesBinding
 
 class IssuesFragment : Fragment() {
 
+    private lateinit var binding: FragmentIssuesBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = DataBindingUtil.inflate<FragmentIssuesBinding>(
+        binding = DataBindingUtil.inflate<FragmentIssuesBinding>(
             inflater,
             R.layout.fragment_issues,
             container,
             false
         )
-
 
         return binding.root
     }
