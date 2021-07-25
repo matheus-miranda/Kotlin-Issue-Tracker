@@ -1,8 +1,9 @@
-package br.com.mmdevelopment.kotlinissuetracker
+package br.com.mmdevelopment.kotlinissuetracker.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import br.com.mmdevelopment.kotlinissuetracker.R
 import br.com.mmdevelopment.kotlinissuetracker.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
