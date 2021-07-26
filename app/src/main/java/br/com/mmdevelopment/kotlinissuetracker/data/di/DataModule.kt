@@ -1,6 +1,8 @@
 package br.com.mmdevelopment.kotlinissuetracker.data.di
 
 import android.util.Log
+import br.com.mmdevelopment.kotlinissuetracker.data.issues.RepoIssues
+import br.com.mmdevelopment.kotlinissuetracker.data.issues.RepoIssuesImpl
 import br.com.mmdevelopment.kotlinissuetracker.data.services.GitHubService
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -15,7 +17,7 @@ object DataModule {
     const val OK_HTTP = "OkHttp"
 
     fun load() {
-        loadKoinModules(networkModules())
+        loadKoinModules(networkModules() + issuesModule())
     }
 
     private fun networkModules(): Module {
@@ -39,6 +41,15 @@ object DataModule {
                 createService<GitHubService>(get(), get())
             }
         }
+    }
+
+    private fun issuesModule(): Module {
+        return module {
+            single<RepoIssues> {
+                RepoIssuesImpl(get())
+            }
+        }
+
     }
 
     private inline fun <reified T> createService(
