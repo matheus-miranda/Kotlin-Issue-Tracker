@@ -14,6 +14,7 @@ class IssuesFragment : Fragment() {
 
     private lateinit var binding: FragmentIssuesBinding
     private val viewModel by viewModel<IssuesViewModel>()
+    private val adapter by lazy { IssueListAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,8 +23,17 @@ class IssuesFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_issues, container, false)
 
         setHasOptionsMenu(true)
-        viewModel.issues.observe(viewLifecycleOwner) {
+        binding.rvIssues.adapter = adapter
 
+        viewModel.getIssues("JetBrains", "kotlin")
+        viewModel.issues.observe(viewLifecycleOwner) {
+            when (it) {
+                IssuesViewModel.State.Loading -> {}
+                is IssuesViewModel.State.Error -> {}
+                is IssuesViewModel.State.Success -> {
+                    adapter.submitList(it.list)
+                }
+            }
         }
         return binding.root
     }
