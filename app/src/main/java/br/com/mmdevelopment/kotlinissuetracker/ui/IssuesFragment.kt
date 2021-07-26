@@ -17,7 +17,7 @@ class IssuesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate<FragmentIssuesBinding>(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_issues,
             container,
