@@ -37,7 +37,7 @@ class IssuesFragment : Fragment() {
                 is IssuesViewModel.State.Error -> {
                     context?.createDialog {
                         setMessage(it.error.message)
-                    }
+                    }?.show()
                     dialog?.dismiss()
                 }
                 is IssuesViewModel.State.Success -> {
