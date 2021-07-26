@@ -7,10 +7,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import br.com.mmdevelopment.kotlinissuetracker.R
 import br.com.mmdevelopment.kotlinissuetracker.databinding.FragmentIssuesBinding
+import br.com.mmdevelopment.kotlinissuetracker.presentation.IssuesViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class IssuesFragment : Fragment() {
 
     private lateinit var binding: FragmentIssuesBinding
+    private val viewModel by viewModel<IssuesViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,6 +22,9 @@ class IssuesFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_issues, container, false)
 
         setHasOptionsMenu(true)
+        viewModel.issues.observe(viewLifecycleOwner) {
+
+        }
         return binding.root
     }
 
