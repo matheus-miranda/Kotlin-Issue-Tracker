@@ -6,6 +6,9 @@ import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import br.com.mmdevelopment.kotlinissuetracker.R
+import br.com.mmdevelopment.kotlinissuetracker.core.createDialog
+import br.com.mmdevelopment.kotlinissuetracker.core.createProgressDialog
+import br.com.mmdevelopment.kotlinissuetracker.core.hideSoftKeyboard
 import br.com.mmdevelopment.kotlinissuetracker.databinding.FragmentIssuesBinding
 import br.com.mmdevelopment.kotlinissuetracker.presentation.IssuesViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -15,6 +18,7 @@ class IssuesFragment : Fragment() {
     private lateinit var binding: FragmentIssuesBinding
     private val viewModel by viewModel<IssuesViewModel>()
     private val adapter by lazy { IssueListAdapter() }
+    private val dialog by lazy { context?.createProgressDialog() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,12 +29,19 @@ class IssuesFragment : Fragment() {
         setHasOptionsMenu(true)
         binding.rvIssues.adapter = adapter
 
-        viewModel.getIssues("JetBrains", "kotlin")
         viewModel.issues.observe(viewLifecycleOwner) {
             when (it) {
-                IssuesViewModel.State.Loading -> {}
-                is IssuesViewModel.State.Error -> {}
+                IssuesViewModel.State.Loading -> {
+                    dialog?.show()
+                }
+                is IssuesViewModel.State.Error -> {
+                    context?.createDialog {
+                        setMessage(it.error.message)
+                    }
+                    dialog?.dismiss()
+                }
                 is IssuesViewModel.State.Success -> {
+                    dialog?.dismiss()
                     adapter.submitList(it.list)
                 }
             }
@@ -52,12 +63,12 @@ class IssuesFragment : Fragment() {
     private fun getSearchInput(searchView: SearchView) {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-
+                query?.let { viewModel.getIssues("JetBrains", it) }
+                binding.root.hideSoftKeyboard()
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-
                 return false
             }
         })
