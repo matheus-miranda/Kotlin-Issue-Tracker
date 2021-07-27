@@ -1,5 +1,9 @@
 package br.com.mmdevelopment.kotlinissuetracker.data.model
 
-data class User (
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class User(
     val avatar_url: String
-)
+) : Parcelable

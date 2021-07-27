@@ -17,5 +17,9 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="br.com.mmdevelopment.kotlinissuetracker.ui.DetailsFragment"
-        android:label="Issue Details" />
+        android:label="Issue Details" >
+        <argument
+            android:name="item"
+            app:argType="br.com.mmdevelopment.kotlinissuetracker.data.model.Issue" />
+    </fragment>
 </navigation>

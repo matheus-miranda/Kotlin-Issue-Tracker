@@ -80,6 +80,10 @@ class IssuesFragment : Fragment() {
      * Called whenever user clicks an item
      */
     private fun clickedListItem(item: Issue) {
-        findNavController().navigate(IssuesFragmentDirections.actionIssuesFragmentToDetailsFragment())
+        findNavController().navigate(
+            IssuesFragmentDirections.actionIssuesFragmentToDetailsFragment(
+                item
+            )
+        )
     }
 }

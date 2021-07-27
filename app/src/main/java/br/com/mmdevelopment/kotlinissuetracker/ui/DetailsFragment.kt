@@ -1,6 +1,7 @@
 package br.com.mmdevelopment.kotlinissuetracker.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +20,8 @@ class DetailsFragment : Fragment() {
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_details, container, false)
 
+        val args = DetailsFragmentArgs.fromBundle(requireArguments())
+        Log.e("Details", "${args.item.pull_request}")
         return binding.root
     }
 }

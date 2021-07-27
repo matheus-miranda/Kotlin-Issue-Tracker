@@ -1,5 +1,9 @@
 package br.com.mmdevelopment.kotlinissuetracker.data.model
 
-data class PullRequest (
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class PullRequest(
     val html_url: String
-)
+) : Parcelable
