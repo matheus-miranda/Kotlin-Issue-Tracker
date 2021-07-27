@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.mmdevelopment.kotlinissuetracker.data.model.Issue
 import br.com.mmdevelopment.kotlinissuetracker.databinding.ItemIssueBinding
 
-class IssueListAdapter : ListAdapter<Issue, IssueListAdapter.ViewHolder>(DiffCallBack()) {
+class IssueListAdapter(private val clickHandler: (Issue) -> Unit) :
+    ListAdapter<Issue, IssueListAdapter.ViewHolder>(DiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -18,6 +19,9 @@ class IssueListAdapter : ListAdapter<Issue, IssueListAdapter.ViewHolder>(DiffCal
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
+        holder.itemView.setOnClickListener {
+            clickHandler(getItem(position))
+        }
     }
 
     inner class ViewHolder(private val binding: ItemIssueBinding) :

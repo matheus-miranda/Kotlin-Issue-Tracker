@@ -9,6 +9,7 @@ import br.com.mmdevelopment.kotlinissuetracker.R
 import br.com.mmdevelopment.kotlinissuetracker.core.createDialog
 import br.com.mmdevelopment.kotlinissuetracker.core.createProgressDialog
 import br.com.mmdevelopment.kotlinissuetracker.core.hideSoftKeyboard
+import br.com.mmdevelopment.kotlinissuetracker.data.model.Issue
 import br.com.mmdevelopment.kotlinissuetracker.databinding.FragmentIssuesBinding
 import br.com.mmdevelopment.kotlinissuetracker.presentation.IssuesViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -17,7 +18,7 @@ class IssuesFragment : Fragment() {
 
     private lateinit var binding: FragmentIssuesBinding
     private val viewModel by viewModel<IssuesViewModel>()
-    private val adapter by lazy { IssueListAdapter() }
+    private val adapter by lazy { IssueListAdapter { clickedListItem(it) } }
     private val dialog by lazy { context?.createProgressDialog() }
 
     override fun onCreateView(
@@ -72,5 +73,12 @@ class IssuesFragment : Fragment() {
                 return false
             }
         })
+    }
+
+    /**
+     * Called whenever user clicks an item
+     */
+    private fun clickedListItem(item: Issue) {
+
     }
 }
