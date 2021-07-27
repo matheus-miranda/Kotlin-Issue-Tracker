@@ -5,6 +5,7 @@ import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import br.com.mmdevelopment.kotlinissuetracker.R
 import br.com.mmdevelopment.kotlinissuetracker.core.createDialog
 import br.com.mmdevelopment.kotlinissuetracker.core.createProgressDialog
@@ -79,6 +80,6 @@ class IssuesFragment : Fragment() {
      * Called whenever user clicks an item
      */
     private fun clickedListItem(item: Issue) {
-
+        findNavController().navigate(IssuesFragmentDirections.actionIssuesFragmentToDetailsFragment())
     }
 }
