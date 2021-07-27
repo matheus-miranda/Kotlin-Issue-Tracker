@@ -38,6 +38,7 @@
             android:layout_marginStart="@dimen/layout_half_spacing"
             android:layout_marginBottom="@dimen/layout_half_spacing"
             android:ellipsize="end"
+            android:scrollbars="vertical"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/tv_created"
@@ -65,9 +66,7 @@
             app:layout_constraintEnd_toEndOf="@id/guide_end"
             app:layout_constraintStart_toStartOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/iv_avatar"
-            tools:text="Makes the `sourcesJar` and `javadocJar` tasks in `kotlin-compiler-embeddable`
-            copy from `kotlin-compiler`.  Note that `kotlin-compiler` does not generate javadoc, so
-            the javadoc jar will be empty, but it will have sources." />
+            tools:text="Makes the `sourcesJar` and `javadocJar` tasks in `kotlin-compiler-embeddable`" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_view"
