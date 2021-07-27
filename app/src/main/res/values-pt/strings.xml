@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">JetBrains Issue Tracker</string>
     <string name="search">Pesquisar</string>
+    <string name="details">Detalhes</string>
+    <string name="view_in_browser">Ver no navegador</string>
 </resources>
