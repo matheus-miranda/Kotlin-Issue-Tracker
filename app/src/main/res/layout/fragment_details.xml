@@ -39,7 +39,6 @@
             android:layout_marginBottom="@dimen/layout_half_spacing"
             android:ellipsize="end"
             android:scrollbars="vertical"
-            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/tv_created"
             app:layout_constraintEnd_toEndOf="@id/guide_end"
@@ -51,6 +50,7 @@
             android:id="@+id/tv_created"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_avatar"
             app:layout_constraintEnd_toEndOf="@id/guide_end"
             tools:text="2021-07-27" />
