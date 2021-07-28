@@ -28,8 +28,8 @@ class IssueListAdapter(private val clickHandler: (Issue) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Issue) {
-            binding.tvRepoState.text = item.state
-            binding.tvRepoTitle.text = item.title
+            binding.issue = item
+            binding.executePendingBindings()
         }
     }
 }
