@@ -1,41 +1,41 @@
 # JetBrains Issue Tracker
 
-## Introdução
-Esse app foi o trabalho de conclusão do Inter Android Developer Bootcamp
+## Intro
+This is the final app project for the Inter Android Developer Bootcamp
 
-A partir do conceito inicial que era desenvolver um app para apresentar o portfólio de repositórios do GitHub, eu decidi buscar a lista de issues de todos os repositórios da <a href="https://github.com/JetBrains">JetBrains</a>.
+The app searches all the issues from any <a href="https://github.com/JetBrains">JetBrains</a> repository.
 
-## Funcionamento
-São consumidos dados da <a href="https://docs.github.com/en/rest/reference/issues">API de Issues do GitHub.</a>
+## Features
+Consumes data from the <a href="https://docs.github.com/en/rest/reference/issues">Issues Github API.</a>
 
-Na tela inicial, é possível digitar o nome de qualquer repositório da JetBrains que a lista lhe trará o estado em que se encontra (open, closed, ou all) e o título do issue.
-Ao clicar no item, o app levará a uma tela mais detalhada com possibilidade de visitar a URL através de seu navegador.
+From the home screen, you can type the name of any JetBrains public repository and you'll receive a list of issue titles and their state (open, closed, or all).
+Clicking an item, takes you to a more detailed screen with the possibility to visit the URL in your browser.
 <br />
 <br />
-Na construção do app, foi levado em conta as melhores práticas adotadas pelo Google com as libraries Jetpack, sendo utilizado:
-- <a href="https://developer.android.com/guide/navigation">Navigation com Safe Args</a>
+While building this app, the most recent best practices from Google were adopted with the Jetpack libraries, including:
+- <a href="https://developer.android.com/guide/navigation">Safe args Navigation</a>
 - <a href="https://developer.android.com/guide/fragments">Fragments</a>
 - <a href="https://developer.android.com/topic/libraries/data-binding/">DataBinding</a>
 - <a href="https://developer.android.com/topic/libraries/data-binding/binding-adapters">Binding adapters</a>
 - <a href="https://developer.android.com/topic/libraries/architecture/viewmodel">ViewModel</a>
 - <a href="https://developer.android.com/kotlin/coroutines">Coroutines</a>
 - <a href="https://developer.android.com/topic/libraries/architecture/livedata">LiveData</a>
-- Transições de animação customizadas
+- Custom transition animations
 
-Bibliotecas utilizadas:
+Libraries used:
 - <a href="https://square.github.io/retrofit/">Retrofit</a>
 - <a href="https://square.github.io/okhttp/4.x/okhttp-logging-interceptor/okhttp3.logging/">OkHttp Logging Interceptor</a>
 - <a href="https://insert-koin.io/docs/quickstart/kotlin/">Koin</a>
 - <a href="https://bumptech.github.io/glide/">Glide</a>
 <br />
 
-## Telas
+## Screens
  <table style="width:100%">
   <tr>
-    <th>Tela Inicial</th>
-    <th>Após pesquisar</th>
-    <th>Detalhes</th>
-    <th>Abrir com navegador</th>
+    <th>Home screen</th>
+    <th>After searching</th>
+    <th>Details screen</th>
+    <th>View in browser</th>
   </tr>
   <tr>
     <td><img src="https://user-images.githubusercontent.com/15269393/127259493-c46e91a6-88c8-4fe0-9f61-8c9d80a92159.jpg"></td>
@@ -56,5 +56,5 @@ Bibliotecas utilizadas:
  </table>
  <br />
  
- ## Em Uso
+ ## In use
 <img src="https://user-images.githubusercontent.com/15269393/127260788-5299dc8b-d6a2-4913-b8f4-0b22f5c865ae.gif">
